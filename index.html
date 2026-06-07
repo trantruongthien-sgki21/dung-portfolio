@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phan Tiến Dũng - Cloud Portfolio</title>
+    <title>Phan Tiến Dũng | Cloud Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,267 +12,421 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #1e293b;
+            scroll-behavior: smooth;
         }
 
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+
+        /* ===== HEADER ===== */
         header {
-            background: #0a192f;
-            color: #fff;
-            padding: 1rem 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
         }
 
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* ===== BUTTON ===== */
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(37,99,235,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #64ffda;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #64ffda;
-        }
-
-        main {
-            margin-top: 70px;
-        }
-
         section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 100px 0;
         }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #0a192f;
-            font-size: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #64ffda;
-            color: #0a192f;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #0a192f;
-            color: #64ffda;
-            border: 1px solid #64ffda;
-        }
-
+        /* ===== HERO ===== */
         .hero {
-            text-align: center;
-            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-            color: white;
-            border-radius: 20px;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .highlight {
-            color: #64ffda;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .student-info {
-            margin-top: 1rem;
-            font-size: 1rem;
-        }
-
-        .avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #64ffda;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content {
-            background: #f0f4f8;
-            padding: 2rem;
-            border-radius: 15px;
+            min-height: 100vh;
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
         }
 
-        .about-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 3px solid #64ffda;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: #f0f4f8;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .skill-card h3 {
-            color: #0a192f;
+        .hero-text h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
 
-        .skill-card ul {
-            list-style: none;
-            padding: 0;
+        .hero-text .highlight {
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .skill-card li {
-            padding: 0.3rem 0;
+        .hero-text .tagline {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
         }
 
-        .cloud-section {
-            background: linear-gradient(135deg, #112240 0%, #0a192f 100%);
-            color: white;
-            border-radius: 20px;
+        .hero-text p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
             text-align: center;
         }
 
-        .cloud-section h2 {
-            color: #64ffda;
+        .hero-image img {
+            width: 320px;
+            height: 320px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
         }
 
-        .cloud-features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ===== SECTION HEADER ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header .underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            margin: 0.5rem auto;
+            border-radius: 5px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(59,130,246,0.1);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin: 1.5rem 0;
+            margin-top: 2rem;
         }
 
-        .cloud-tag {
-            background: rgba(100, 255, 218, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 20px;
         }
 
-        .project-grid {
+        .stat .number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2563eb;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .project-card {
-            background: #f0f4f8;
+        .skill-item {
+            background: white;
             padding: 1.5rem;
-            border-radius: 15px;
-            transition: transform 0.3s;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+            border-color: #3b82f6;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* ===== CLOUD ===== */
+        .cloud-section {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            color: white;
+            border-radius: 40px;
+            margin: 0 2rem;
+        }
+
+        .cloud-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 4rem;
+        }
+
+        .cloud-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .cloud-feature {
+            background: rgba(96,165,250,0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2);
         }
 
-        .project-card h3 {
-            color: #0a192f;
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
-        .tech {
-            display: inline-block;
-            background: #64ffda;
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-tech span {
+            background: #f1f5f9;
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            margin: 0.5rem 0;
+            font-size: 0.75rem;
         }
 
-        #contact form {
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+        }
+
+        .contact-item {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        input, textarea {
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            font-family: inherit;
         }
 
-        .social-links {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
+        /* ===== FOOTER ===== */
         footer {
+            background: #0f172a;
+            color: #94a3b8;
             text-align: center;
             padding: 2rem;
-            background: #0a192f;
-            color: white;
             margin-top: 2rem;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
+            .hero-content, .about-grid, .cloud-content, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-image img {
+                width: 220px;
+                height: 220px;
+            }
             .nav-links {
                 display: none;
             }
-            h1 {
-                font-size: 1.8rem;
+            .container {
+                padding: 0 1.5rem;
             }
-            .about-content {
-                flex-direction: column;
-                text-align: center;
+            .cloud-section {
+                margin: 0 1rem;
+            }
+            .cloud-content {
+                padding: 2rem;
             }
         }
     </style>
@@ -280,12 +434,12 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Dũng's Cloud</div>
+            <div class="logo">DŨNG CLOUD</div>
             <ul class="nav-links">
                 <li><a href="#home">Trang chủ</a></li>
                 <li><a href="#about">Về tôi</a></li>
                 <li><a href="#skills">Kỹ năng</a></li>
-                <li><a href="#cloud">Đám mây</a></li>
+                <li><a href="#cloud">Cloud</a></li>
                 <li><a href="#projects">Dự án</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
             </ul>
@@ -293,123 +447,220 @@
     </header>
 
     <main>
-        <!-- TRANG CHỦ -->
+        <!-- ===== HERO ===== -->
         <section id="home" class="hero">
-            <img src="dung2006.jpg" alt="Phan Tiến Dũng" class="avatar">
-            <h1>Xin chào, tôi là <span class="highlight">Phan Tiến Dũng</span></h1>
-            <p class="tagline">Cloud Architect | DevOps Engineer | Full-stack Developer</p>
-            <p>Đam mê xây dựng hệ thống đám mây hiệu năng cao, bảo mật và tự động hóa.</p>
-            <div style="margin: 1.5rem 0;">
-                <a href="#projects" class="btn">Xem dự án</a>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Xin chào, tôi là <span class="highlight">Phan Tiến Dũng</span></h1>
+                        <div class="tagline">Cloud Architect & DevOps Engineer</div>
+                        <p>Xây dựng hệ thống đám mây hiệu năng cao, bảo mật và tự động hóa. Đam mê công nghệ serverless và CI/CD.</p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn-primary">Xem dự án</a>
+                            <a href="#contact" class="btn-outline">Liên hệ</a>
+                        </div>
+                        <div style="margin-top: 2rem; font-size: 0.9rem; color: #94a3b8;">
+                            📚 Lớp: TH29.06 | 🎓 MSV: 2924115277
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="dung2006.jpg" alt="Phan Tiến Dũng">
+                    </div>
+                </div>
             </div>
-            <p class="student-info"><strong>Lớp:</strong> TH29.06 | <strong>MSV:</strong> 2924115277</p>
         </section>
 
-        <!-- VỀ TÔI -->
+        <!-- ===== ABOUT ===== -->
         <section id="about">
-            <h2>📖 Về tôi</h2>
-            <div class="about-content">
-                <img src="dung2006.jpg" alt="Phan Tiến Dũng" class="about-img">
-                <div class="about-text">
-                    <p>Mình là <strong>Phan Tiến Dũng</strong> (MSV: 2924115277), sinh viên năm 2 lớp <strong>TH29.06</strong>, chuyên ngành Công nghệ thông tin tại <strong>Đại học Kinh doanh và Công nghệ Hà Nội (HUBT)</strong>.</p>
-                    <p style="margin-top: 1rem;">Với niềm đam mê điện toán đám mây, mình đã tìm hiểu và triển khai thành công nhiều ứng dụng trên Vercel, AWS. Mục tiêu trở thành Cloud Engineer chuyên nghiệp, góp phần xây dựng nền tảng công nghệ vững chắc cho các doanh nghiệp Việt Nam.</p>
-                    <p style="margin-top: 1rem;">📌 <strong>Thành tích:</strong> Hoàn thành đồ án Điện toán đám mây với mô hình CI/CD tự động trên Vercel.</p>
+            <div class="container">
+                <div class="section-header">
+                    <h2>📖 Về tôi</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <p><strong>👋 Mình là Phan Tiến Dũng</strong> (MSV: 2924115277), sinh viên năm 2 lớp TH29.06, chuyên ngành Công nghệ thông tin tại <strong>Đại học Kinh doanh và Công nghệ Hà Nội (HUBT)</strong>.</p>
+                        <p style="margin-top: 1rem;">🚀 Mình đam mê điện toán đám mây, DevOps và các giải pháp serverless. Đã triển khai thành công nhiều ứng dụng trên Vercel, AWS và đang từng bước chinh phục các chứng chỉ Cloud chuyên nghiệp.</p>
+                        <p style="margin-top: 1rem;">🎯 Mục tiêu: Trở thành Cloud Engineer chuyên nghiệp, góp phần xây dựng nền tảng công nghệ vững chắc cho doanh nghiệp Việt Nam.</p>
+                        <div class="about-stats">
+                            <div class="stat">
+                                <div class="number">5+</div>
+                                <div>Dự án</div>
+                            </div>
+                            <div class="stat">
+                                <div class="number">3</div>
+                                <div>Cloud Platform</div>
+                            </div>
+                            <div class="stat">
+                                <div class="number">100%</div>
+                                <div>CI/CD</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 30px; padding: 2rem; color: white;">
+                        <h3>📌 Thành tích</h3>
+                        <ul style="margin-top: 1rem; list-style: none;">
+                            <li>✅ Hoàn thành đồ án Điện toán đám mây với CI/CD trên Vercel</li>
+                            <li>✅ Triển khai web tốc độ cao < 50ms TTFB</li>
+                            <li>✅ Uptime 99.99% với Serverless Architecture</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- KỸ NĂNG -->
-        <section id="skills">
-            <h2>⚙️ Kỹ năng chuyên môn</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>☁️ Cloud Platform</h3>
-                    <ul>
-                        <li>Vercel / Netlify</li>
-                        <li>AWS (EC2, S3, Lambda)</li>
-                        <li>Azure Basic</li>
-                        <li>Google Cloud Platform</li>
-                    </ul>
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" style="background: #f8fafc;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>⚙️ Kỹ năng chuyên môn</h2>
+                    <div class="underline"></div>
                 </div>
-                <div class="skill-card">
-                    <h3>🛠️ DevOps Tools</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>CI/CD Pipeline</li>
-                        <li>Docker cơ bản</li>
-                        <li>GitHub Actions</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>💻 Development</h3>
-                    <ul>
-                        <li>HTML5 / CSS3 / JS</li>
-                        <li>React.js</li>
-                        <li>Node.js / Express</li>
-                        <li>MongoDB / MySQL</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIẢI PHÁP ĐÁM MÂY -->
-        <section id="cloud" class="cloud-section">
-            <h2>☁️ Giải pháp Điện toán đám mây</h2>
-            <p>Tận dụng sức mạnh của Serverless và Edge Computing để tối ưu hiệu năng và chi phí.</p>
-            <div class="cloud-features">
-                <span class="cloud-tag">✅ Serverless Architecture</span>
-                <span class="cloud-tag">✅ Edge Computing</span>
-                <span class="cloud-tag">✅ Auto-scaling</span>
-                <span class="cloud-tag">✅ Global CDN</span>
-                <span class="cloud-tag">✅ Bảo mật SSL miễn phí</span>
-                <span class="cloud-tag">✅ CI/CD tích hợp</span>
-            </div>
-            <div style="margin-top: 2rem;">
-                <p>🔥 <strong>Vercel Platform</strong> - Nơi mình triển khai portfolio với tốc độ tải trang chỉ 50ms.</p>
-            </div>
-        </section>
-
-        <!-- DỰ ÁN -->
-        <section id="projects">
-            <h2>📁 Dự án tiêu biểu</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>🌐 Portfolio trên Vercel</h3>
-                    <p>Website cá nhân được triển khai với CI/CD tự động từ GitHub, bảo mật HTTPS, tối ưu Lighthouse >90 điểm.</p>
-                    <span class="tech">HTML/CSS · Vercel · Git</span>
-                    <br>
-                    <a href="#" style="color: #64ffda;">Xem ngay →</a>
-                </div>
-                <div class="project-card">
-                    <h3>📊 Cloud Cost Calculator</h3>
-                    <p>Công cụ tính chi phí đám mây theo thời gian thực, hỗ trợ AWS EC2 và S3.</p>
-                    <span class="tech">JavaScript · Cloud API</span>
-                    <br>
-                    <a href="#" style="color: #64ffda;">Xem trên GitHub →</a>
-                </div>
-                <div class="project-card">
-                    <h3>🔄 CI/CD Pipeline Demo</h3>
-                    <p>Mô phỏng pipeline tự động build, test, deploy lên Vercel khi push code lên GitHub.</p>
-                    <span class="tech">GitHub Actions · Vercel</span>
-                    <br>
-                    <a href="#" style="color: #64ffda;">Xem demo →</a>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">☁️</div>
+                        <h3>Cloud Platform</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Vercel</span>
+                            <span class="skill-tag">Netlify</span>
+                            <span class="skill-tag">AWS EC2</span>
+                            <span class="skill-tag">AWS S3</span>
+                            <span class="skill-tag">Lambda</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🛠️</div>
+                        <h3>DevOps Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">💻</div>
+                        <h3>Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML/CSS/JS</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- LIÊN HỆ -->
+        <!-- ===== CLOUD ===== -->
+        <section id="cloud">
+            <div class="cloud-section">
+                <div class="cloud-content">
+                    <div>
+                        <h2 style="font-size: 2rem; margin-bottom: 1rem;">☁️ Giải pháp Đám mây</h2>
+                        <p>Tận dụng sức mạnh của Serverless và Edge Computing để tối ưu hiệu năng và chi phí.</p>
+                        <div class="cloud-features">
+                            <span class="cloud-feature">Serverless</span>
+                            <span class="cloud-feature">Edge Computing</span>
+                            <span class="cloud-feature">Auto-scaling</span>
+                            <span class="cloud-feature">Global CDN</span>
+                            <span class="cloud-feature">SSL miễn phí</span>
+                            <span class="cloud-feature">CI/CD tích hợp</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 20px;">
+                            <p style="font-size: 1.2rem;">🔥 <strong>Vercel Platform</strong></p>
+                            <p>Tốc độ tải trang chỉ ~50ms TTFB | Uptime 99.99% | Deploy tự động từ GitHub</p>
+                            <div style="margin-top: 1rem;">
+                                <span style="background: #2563eb; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem;">#CI/CD</span>
+                                <span style="background: #2563eb; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem;">#Serverless</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" style="background: #f8fafc;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📁 Dự án tiêu biểu</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>🌐 Cloud Portfolio</h3>
+                            <p>Website cá nhân triển khai trên Vercel với CI/CD tự động, HTTPS, tối ưu Lighthouse >90 điểm.</p>
+                            <div class="project-tech">
+                                <span>HTML/CSS</span>
+                                <span>Vercel</span>
+                                <span>Git</span>
+                            </div>
+                            <a href="#" style="color: #2563eb; text-decoration: none;">Xem chi tiết →</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>📊 Cloud Cost Calculator</h3>
+                            <p>Công cụ tính chi phí đám mây theo thời gian thực, hỗ trợ AWS EC2, S3, Lambda.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>Cloud API</span>
+                            </div>
+                            <a href="#" style="color: #2563eb; text-decoration: none;">Xem chi tiết →</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3>🔄 CI/CD Pipeline Demo</h3>
+                            <p>Pipeline tự động build, test, deploy lên Vercel mỗi khi push code lên GitHub.</p>
+                            <div class="project-tech">
+                                <span>GitHub Actions</span>
+                                <span>Vercel</span>
+                            </div>
+                            <a href="#" style="color: #2563eb; text-decoration: none;">Xem chi tiết →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
         <section id="contact">
-            <h2>📞 Liên hệ với tôi</h2>
-            <form id="contactForm">
-                <input type="text" placeholder="Họ tên của bạn" required>
-                <input type="email" placeholder="Email của bạn" required>
-                <textarea rows="5" placeholder="Nội dung tin nhắn..."></textarea>
-                <button type="submit" class="btn">Gửi tin nhắn</button>
-            </form>
-            <div class="social-links">
-                <p>📧 Email: duongbc1511@gmail.com</p>
-                <p>🐙 GitHub: github.com/phantien2006</p>
-                <p>📱 MSV: 2924115277 - Lớp TH29.06</p>
+            <div class="container">
+                <div class="section-header">
+                    <h2>📞 Liên hệ với tôi</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>phantiendung@hubt.edu.vn</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🐙</span>
+                            <span>github.com/phantien2006</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>MSV: 2924115277 - Lớp TH29.06</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🏫</span>
+                            <span>Đại học HUBT</span>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" placeholder="Họ tên của bạn" required>
+                        <input type="email" placeholder="Email của bạn" required>
+                        <textarea rows="4" placeholder="Nội dung tin nhắn..."></textarea>
+                        <button type="submit" class="btn-primary">Gửi tin nhắn ✨</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -420,6 +671,7 @@
     </footer>
 
     <script>
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -428,6 +680,7 @@
             });
         });
 
+        // Contact form
         const form = document.getElementById('contactForm');
         if (form) {
             form.addEventListener('submit', (e) => {
